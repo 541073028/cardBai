@@ -1,7 +1,7 @@
 <template>
     <div class="invite">
         <div class="title">
-            <img src="../../assets/img/fanhui@2x.png" alt="">
+            <img src="../../assets/img/invite-fanhui@2x.png" alt="">
             <p>邀请好友</p>
         </div>
         <!--普通common-->
