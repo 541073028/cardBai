@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <title>card-bai</title>
+  </head>
+  <body>
+    <noscript>
+      <strong>We're sorry but card-bai doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+    <script>
+        window.onload = function () {
+            resize(750, "x");
+        }
+
+        function resize(originSize, type) {
+            // originSize = 750;
+            // type = x
+            type = type || "x";
+            if (type == "x") {
+                var width = document.documentElement.clientWidth;//设备的宽度
+                var scale = width / originSize * 100 + "px";
+                document.getElementsByTagName("html")[0].style.fontSize = scale;
+            } else if (type == "y") {
+                var height = document.documentElement.clientHeight;
+                var scale = height / originSize + "px";
+                document.getElementsByTagName("html")[0].style.fontSize = scale;
+            }
+        }
+
+        resize(750, "x");
+
+        window.onresize = function () {
+            resize(750, "x");
+        }
+
+    </script>
+  </body>
+</html>
