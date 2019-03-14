@@ -1,4 +1,4 @@
-@charset "utf-8";html{background-color:#f8f8fc;color:#2E3141;font-size:12px}
+@charset "utf-8";html{background-color:#f8f8fc;color:#3E3E4D;font-size:12px}
 body,ul,ol,dl,dd,h1,h2,h3,h4,h5,h6,figure,form,fieldset,legend,input,textarea,button,p,blockquote,th,td,pre,xmp,div,p,li{margin:0;padding:0;box-sizing:border-box;}
 body,input,textarea,button,select,pre,xmp,tt,code,kbd,samp{line-height:1.5;font-family:"PingFangSC-Regular",tahoma,arial,"Hiragino Sans GB",simsun,sans-serif}
 h1,h2,h3,h4,h5,h6,small,big,input,textarea,button,select{font-size:100%}
@@ -22,4 +22,4 @@ sup,sub{vertical-align:baseline}
 html {overflow-x: hidden;height: 100%;font-size: 50px;-webkit-tap-highlight-color: transparent;}
 body {font-family: Arial, "Microsoft Yahei", "Helvetica Neue", Helvetica, sans-serif;color: #333;font-size: .28em;line-height: 1.3;-webkit-text-size-adjust: none;}
 hr {height: .02rem;margin: .1rem 0;border: medium none;border-top: .02rem solid #cacaca;}
-a {color: #25a4bb;text-decoration: none;}
+a {color: #3E3E4D;text-decoration: none;}

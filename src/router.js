@@ -11,7 +11,9 @@ export default new Router({
       // which is lazy-loaded when the route is visited.
     {path: '/', name: 'home', component: Home},
     {path: '/about', name: 'about', component: () => import(/* webpackChunkName: "about" */ './views/About.vue')},
-    {path: '/invite', name: 'invite', component: () => import(/* webpackChunkName: "invite" */ './views/invite/invite.vue')},
+    {path: '/invite', name: 'invite', component: () => import(/* webpackChunkName: "invite" */ './views/share/invite.vue')},
+    {path: '/landing', name: 'landing', component: () => import(/* webpackChunkName: "landing" */ './views/share/landing.vue')},
+    {path: '/qrCode', name: 'qrCode', component: () => import(/* webpackChunkName: "qrCode" */ './views/share/qrCode.vue')},
 
 
 
