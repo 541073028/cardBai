@@ -1,6 +1,6 @@
 <template>
     <div class="landing">
-        <img class="bg" src="../../assets/img/share-landing.jpg" alt="">
+        <img class="bg" :src="state ? signBg :winBg" alt="">
         <div class="main">
             <div v-if="state" class="inputBox">
                 <div class="item">
@@ -40,7 +40,9 @@
                 disabled: false,
                 time: 0,
                 friendPhone: '158****1797',//好友手机号
-                state: false,
+                state: true,
+                winBg: require('../../assets/img/share-landing-win.png'),
+                signBg: require('../../assets/img/share-landing.png'),
             }
         },
         methods:{
@@ -90,7 +92,8 @@
             width: 100%
         .main
             width: 7.06rem
-            height: 5.45rem
+            height: auto
+            min-height: 4.54rem
             background: #fff
             border-radius: .15rem
             position: absolute
@@ -100,11 +103,11 @@
             padding: .43rem .8rem 0
         .signWin
             font-size: .54rem
-            font-family: PingFang-SC-Regular
+            font-family: 'PingFang-SC-Regular'
             text-align: center
             color: #3E3E4D
             line-height: .78rem
-            margin: .4rem 0 .62rem
+            margin: .28rem 0 .42rem
         .inputBox
             .item
                 /*width: 5.39rem*/

@@ -1,7 +1,7 @@
 
 (function(win, lib) {
     var doc = win.document;
-    var docEl = doc.documentElement;
+    var docEl = doc.documentElement;//html根节点
     var metaEl = doc.querySelector('meta[name="viewport"]');
     var flexibleEl = doc.querySelector('meta[name="flexible"]');
     var dpr = 0;
@@ -9,6 +9,10 @@
     var tid;
     var flexible = lib.flexible || (lib.flexible = {});
 
+    //match() 方法可在字符串内检索指定的值，或找到一个或多个正则表达式的匹配。
+    //getAttribute() 方法返回指定属性名的属性值。
+    //parseFloat() 函数可解析一个字符串，并返回一个浮点数。
+    //parseInt() 函数可解析一个字符串，并返回一个整数。
     if (metaEl) {
         console.warn('将根据已有的meta标签来设置缩放比例');
         var match = metaEl.getAttribute('content').match(/initial\-scale=([\d\.]+)/);
@@ -68,9 +72,9 @@
 
     function refreshRem(){
         var width = docEl.getBoundingClientRect().width;
-        if (width / dpr > 540) {
-            width = 540 * dpr;
-        }
+        // if (width / dpr > 540) {
+        //     width = 540 * dpr;
+        // }
         var rem = width / 7.5;
         docEl.style.fontSize = rem + 'px';
         flexible.rem = win.rem = rem;
