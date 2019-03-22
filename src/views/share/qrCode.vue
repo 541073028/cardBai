@@ -119,4 +119,35 @@
                         height: .77rem
                         display: block
                         margin: 0 auto .17rem
+        @media screen and (max-height: 510px) and (max-width: 330px)
+            .codeBox
+                img
+                    height: 8rem
+                    width: 5.28rem
+                    position: absolute
+                    top: 50%
+                    left: 50%
+                    margin-top: -4rem
+                    margin-left: -2.64rem
+        @media screen and (max-height: 580px) and (max-width: 1400px)
+            .codeBox
+                img
+                    height: 8rem
+                    width: 5.28rem
+                    position: absolute
+                    top: 50%
+                    left: 50%
+                    margin-top: -4rem
+                    margin-left: -2.64rem
+        @media screen and (min-height: 1024px) and (min-width: 768px)
+            .codeBox
+                img
+                    height: 6.5rem
+                    width: 4.28rem
+                    position: absolute
+                    top: 50%
+                    left: 50%
+                    margin-top: -3.25rem
+                    margin-left: -2.14rem
+
 </style>

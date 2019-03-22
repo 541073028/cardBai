@@ -13,7 +13,7 @@
                     <button class="code" @click="getCode" :class="{codeAct:codeBtn!=='获取验证码'}" type="button" :disabled="disabled">{{ codeBtn }}</button>
                 </div>
                 <div class="rule">
-                    <img src="../../assets/img/share-mima@2x.png" alt="">
+                    <img src="../../assets/img/yuan@2x.png" alt="">
                     <p>我同意&nbsp;<span>《用户服务协议》</span></p>
                 </div>
                 <div class="signBtn" @click="signIn">注册领佣金</div>
