@@ -1,17 +1,17 @@
 <template>
     <div class="invite">
-        <div class="title">
-            <img src="../../assets/img/invite-fanhui@2x.png" alt="">
-            <p>邀请好友</p>
-        </div>
+        <!--<div class="title">-->
+            <!--<img src="../../assets/img/invite-fanhui@2x.png" alt="">-->
+            <!--<p>邀请好友</p>-->
+        <!--</div>-->
         <!--普通common-->
-        <common v-if="status==='common'" />
+        <common v-if="status==='0'" />
         <!--vip-->
-        <vipUser v-else-if="status==='vipUser'" />
+        <vipUser v-else-if="status==='1'" />
         <!--代理商-->
-        <agent v-else-if="status==='agent'" />
+        <agent v-else-if="status==='2'" />
         <!--城市合伙人-->
-        <partner v-else-if="status==='partner'" />
+        <partner v-else-if="status==='3'" />
 
     </div>
 </template>
@@ -26,7 +26,8 @@
         name: "invite",
         data(){
             return{
-                status: 'common',
+                //【status： '用户级别 0：普通用户 1：vip用户，2：一级代理商，3：地级合伙人',】
+                // status: '0',
             }
         },
         components: {
@@ -34,6 +35,14 @@
             vipUser,
             agent,
             partner,
+        },
+        computed:{
+            status(){
+                return this.$route.query.level || '0';
+            }
+        },
+        mounted(){
+            // this.status = ;
         }
     }
 </script>

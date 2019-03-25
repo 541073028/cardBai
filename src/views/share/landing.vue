@@ -1,6 +1,6 @@
 <template>
     <div class="landing">
-        <img class="bg" :src="state ? signBg :winBg" alt="">
+        <img class="bg" src="../../assets/img/share-landing.png" alt="">
         <div class="main">
             <div v-if="state" class="inputBox">
                 <div class="item">
@@ -20,9 +20,11 @@
             </div>
             <div v-else>
                 <div class="signWin">恭喜您注册成功<br/>快下载app一起赚佣金</div>
-                <div class="signBtn" @click="signIn">注册领佣金</div>
+                <!--<div class="signBtn" @click="downloadAPP">立即下载APP</div>-->
+                <div class="downBtn" @click="downloadAPP(0)"></div>
+                <div class="downBtn1" @click="downloadAPP(1)"></div>
             </div>
-            <p class="notice">您的好友{{ friendPhone }}邀您加入卡呗生活</p>
+            <p class="notice">您的好友 {{ friendPhone }} 邀您加入卡呗生活</p>
         </div>
     </div>
 </template>
@@ -34,8 +36,12 @@
         name: "landing",
         data(){
             return{
+                timestamp: new Date().getTime(),//时间戳
+                userId: '11',
+                mobile: '15088672554',//二维码附带手机号
+                inviteCode: 'waob3e4w',//二维码附带邀请码
                 phone: '',//手机号
-                code: '',//验证码
+                code: '',//短信验证码
                 codeBtn: '获取验证码',//获取验证码btn
                 disabled: false,
                 time: 0,
@@ -60,12 +66,44 @@
                     Toast("请输入验证码");
                     return false;
                 }
+                let postData = {
+                    "mobile": this.mobile,
+                    "mobileAuthCode": this.code,
+                    "invationCode": this.inviteCode,
+                    "deviceType": '3',
+                    "timestamp": this.timestamp,
+                };
+                console.log(postData);
+                this.axios.post('/api/user/h5InviteFriendRegister',postData).then(res=>{
+                    console.log(res);
+                    if(res.data.code==200){
+                        Toast('注册成功');
+                        this.state = false;
+                    }else {
+                        Toast(res.data.message);
+                    }
+                });
             },
             //获取验证码
             getCode:function(){
-                this.time=60;
+                this.time = 60;
                 this.disabled=true;
                 this.timer();
+                let postData = {
+                    "mobile": this.phone,
+                    "deviceType": '3',
+                    "timestamp": this.timestamp,
+                };
+                console.log(postData);
+                this.axios.post('/api/user/smsCodeH5',postData).then(res=>{
+                    console.log(res);
+                    if(res.data.code==200){
+                        Toast('发送成功');
+                        this.code = res.data.data;
+                    }else {
+                        Toast(res.data.message);
+                    }
+                });
             },
             //封装一个函数，获取验证码部分：60s 或 重新发送
             timer:function (){
@@ -79,6 +117,48 @@
                     this.disabled = false;
                 }
             },
+            //下载APP
+            downloadAPP(num){
+                if(num==0){
+                    console.log('安卓APP');
+                }else {
+                    console.log('iosAPP');
+                    downApp.toIOSStore("downloadAPP")
+                }
+
+            }
+        },
+        mounted(){
+            this.mobile = this.$route.query.mobile;
+            this.inviteCode = this.$route.query.code;
+            // 判断手机号是否经过保密处理，而后赋值渲染页面
+            if(!reg.test(this.mobile)){
+                this.friendPhone = this.mobile;
+            }else {
+                this.friendPhone = this.mobile.substr(0,3) + "****" + this.mobile.substr(7);
+            }
+
+            /**
+             *
+             * 接口示例
+             *
+             * */
+            // this.axios({
+            //     method: 'post',
+            //     url: '/api/user/h5InviteFrendRegister',
+            //     data: {
+            //         mobile: this.mobile,
+            //         mobileAuthCode: this.code,
+            //         invationCode: this.inviteCode,
+            //         deviceType: '3',
+            //         timestamp: this.timestamp,
+            //     }
+            // }).then(res=>{
+            //     console.log(res);
+            //     if(res.data.code=='100030') {
+            //         Toast('验证失败');
+            //     }
+            // });
         }
     }
 </script>
@@ -93,6 +173,7 @@
         .main
             width: 7.06rem
             height: auto
+            max-height: 5.46rem
             min-height: 4.54rem
             background: #fff
             border-radius: .15rem
@@ -100,14 +181,14 @@
             top: 4.8rem
             left: 50%
             margin-left: -3.53rem
-            padding: .43rem .8rem 0
+            padding: .42rem .8rem 0
         .signWin
             font-size: .54rem
             font-family: 'PingFang-SC-Regular'
             text-align: center
             color: #3E3E4D
             line-height: .78rem
-            margin: .28rem 0 .42rem
+            margin: .22rem 0 .4rem
         .inputBox
             .item
                 /*width: 5.39rem*/
@@ -158,6 +239,15 @@
             font-weight: bold
             color: #fff
             text-align: center
+        .downBtn,.downBtn1
+            width: 3.84rem
+            height: .99rem
+            margin: 0 auto
+            background: url("../../assets/img/Android.png")
+            background-size: 100% 100%
+        .downBtn1
+            background: url("../../assets/img/iPhone.png")
+            background-size: 100% 100%
         .notice
             color: #FF8E21
             line-height: .91rem

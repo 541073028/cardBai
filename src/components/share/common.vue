@@ -2,9 +2,10 @@
     <div class="common">
         <img src="../../assets/img/invite-common@2x.jpg" alt="" class="bg">
         <div class="rule">活动规则</div>
-        <div class="notice">
-            恭喜{{user}}用户{{phone}}累计获得 <span>{{money}}元</span>邀请奖励
-        </div>
+        <!-- 前期暂注释，后期打开 -->
+        <!--<div class="notice">-->
+            <!--恭喜{{user}}用户{{phone}}累计获得 <span>{{money}}元</span>邀请奖励-->
+        <!--</div>-->
         <div class="update">邀请20个好友直接升级为VIP会员</div>
         <div class="btn" :class="ele.name" v-for="(ele,index) in btnList" :key="index" @click="addEquities(index)">{{ele.msg}}</div>
         <div class="inviteBtn">
@@ -31,23 +32,36 @@
                 ],
                 inviteBtn: [
                     {id:1,content:'二维码邀请',src: require('../../assets/img/invite_erweima.png')},
-                    {id:2,content:'分享邀请',src: require('../../assets/img/invite_fenxiang.png')},
-                    // {id:1,content:'二维码邀请',src: '../../assets/img/invite_erweima.png'},
-                    // {id:2,content:'分享邀请',src: '../../assets/img/invite_fenxiang.png'},
+                    {id:2,content:'分享邀请',src: require('../../assets/img/invite_fenxiang.png')}
                 ],
             }
         },
         methods:{
             //增加权益【0-成为会员；1-成为一级代理商；2-成为合伙人】
             addEquities(i){
-                if(i==0) console.log('成为会员');
-                if(i==1) console.log('成为一级代理商');
-                if(i==2) console.log('成为合伙人');
+                if(i==0){
+                    upgrade.toVip("0");
+                    console.log('成为会员');
+                }
+                if(i==1){
+                    upgrade.toAgent('0');
+                    console.log('成为一级代理商');
+                }
+                if(i==2){
+                    upgrade.toPartner("0");
+                    console.log('成为合伙人');
+                }
             },
             //邀请【0-二维码邀请；1-分享邀请】
             invite(i){
-                if(i==0) console.log('二维码邀请');
-                if(i==1) console.log('分享邀请');
+                if(i==0){
+                    console.log('二维码邀请');
+                    upgrade.byQrcode("0")
+                }
+                if(i==1){
+                    console.log('分享邀请');
+                    upgrade.byShare("0")
+                }
             }
         }
     }

@@ -3,8 +3,9 @@
         <div class="headImg">
             <img :src="getHeadImg" alt="">
         </div>
+        <!--【getType：1--vip会员，2--一级代理，3--城市合伙人】-->
         <!--vip会员-->
-        <div class="content" v-if="type=='vip'">
+        <div class="content" v-if="getType=='1'">
             <div class="btnBox">
                 <h1>VIP会员 享特权</h1>
                 <div class="itemBox">
@@ -26,7 +27,7 @@
             </div>
         </div>
         <!--一级代理-->
-        <div class="content" v-else-if="type=='agent'">
+        <div class="content" v-else-if="getType=='2'">
             <div class="btnBox">
                 <h1>一级代理 享特权</h1>
                 <div class="itemBox">
@@ -48,7 +49,7 @@
             </div>
         </div>
         <!--城市合伙人-->
-        <div class="content" v-else-if="type=='partner'">
+        <div class="content" v-else-if="getType=='3'">
             <div class="btnBox">
                 <h1>城市合伙人 享特权</h1>
                 <div class="itemBox">
@@ -78,7 +79,19 @@
         name: "equity",
         data(){
             return {
-                "type": 'partner',
+                //vip会员列表
+                "vipBtn": [
+                    {id:1, icon: require('../../assets/img/mine/fenxiang@2x.png'), text: '分享好友赚钱'},
+                    {id:2, icon: require('../../assets/img/mine/shoukuan@2x.png'), text: '收款费率更低'},
+                    {id:3, icon: require('../../assets/img/mine/huankuan@2x.png'), text: '还款费率更低'},
+                    {id:4, icon: require('../../assets/img/mine/ceping@2x.png'), text: '免费测评信用'}
+                ],
+                "vipCard": [
+                    {id:1, icon: require('../../assets/img/mine/agent_tp@2x.png'), text: '好友升级赚钱',describe: '好友升级奖励55%'},
+                    {id:2, icon: require('../../assets/img/mine/shoukuan@2x(1).png'), text: '收款费率更低',describe: '手续费低至0.55%+1'},
+                    {id:3, icon: require('../../assets/img/mine/huankuan@2x(1).png'), text: '还款费率更低',describe: '手续费低至0.69%+1'},
+                    {id:4, icon: require('../../assets/img/mine/ceping@2x(1).png'), text: '免费测评信用',describe: '每年5次免费测评'}
+                ],
                 //一级代理列表
                 "agentBtn": [
                     {id:1, icon: require('../../assets/img/mine/shengji@2x.png'), text: '好友升级赚钱'},
@@ -99,19 +112,6 @@
                     {id:6, icon: require('../../assets/img/mine/agent_pingtai@2x.png'), text: '平台补贴',describe: '直招代理所有利润的10%'},
                     {id:7, icon: require('../../assets/img/mine/agent_jiaoyi@2x.png'), text: '自用交易省钱',describe: '收款0.52%+2还款0.62%+1'},
                     {id:8, icon: require('../../assets/img/mine/agent_kefu@2x.png'), text: '1V1专属客服',describe: '在线客服，即时回复无需等待'}
-                ],
-                //vip会员列表
-                "vipBtn": [
-                    {id:1, icon: require('../../assets/img/mine/fenxiang@2x.png'), text: '分享好友赚钱'},
-                    {id:2, icon: require('../../assets/img/mine/shoukuan@2x.png'), text: '收款费率更低'},
-                    {id:3, icon: require('../../assets/img/mine/huankuan@2x.png'), text: '还款费率更低'},
-                    {id:4, icon: require('../../assets/img/mine/ceping@2x.png'), text: '免费测评信用'}
-                ],
-                "vipCard": [
-                    {id:1, icon: require('../../assets/img/mine/agent_tp@2x.png'), text: '好友升级赚钱',describe: '好友升级奖励55%'},
-                    {id:2, icon: require('../../assets/img/mine/shoukuan@2x(1).png'), text: '收款费率更低',describe: '手续费低至0.55%+1'},
-                    {id:3, icon: require('../../assets/img/mine/huankuan@2x(1).png'), text: '还款费率更低',describe: '手续费低至0.69%+1'},
-                    {id:4, icon: require('../../assets/img/mine/ceping@2x(1).png'), text: '免费测评信用',describe: '每年5次免费测评'}
                 ],
                 //城市合伙人列表
                 "partnerBtn": [
@@ -142,19 +142,25 @@
             //动态切换头图
             getHeadImg(){
                 let that = this;
-                if(that.type=='vip'){
+                if(that.getType=='1'){
                     console.log('vip');
                     return require('../../assets/img/mine/equity_vip@2x.png');
-                }else if(that.type=='agent'){
+                }else if(that.getType=='2'){
                     console.log('agent');
                     return require('../../assets/img/mine/daili@2x.png');
-                }else if(that.type=='partner'){
+                }else if(that.getType=='3'){
                     console.log('partner');
                     return require('../../assets/img/mine/hehuoren@2x.png');
                 }
             },
+        //    动态获取type值
+            getType(){
+                return this.$route.query.type || '1';
+            }
         },
+        mounted(){
 
+        }
     }
 </script>
 
