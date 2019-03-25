@@ -123,9 +123,11 @@
          top: 23.08rem
      .inviteBtn
          width: 100%
-         padding: 0 .23rem
-         position: absolute
-         top: 28.16rem
+         background: #6C35ED
+         padding: .26rem .23rem
+         position: fixed
+         bottom: 0
+         left: 0
          display: flex
          align-items: center
          justify-content: space-around
