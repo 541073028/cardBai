@@ -78,6 +78,17 @@
         var rem = width / 7.5;
         docEl.style.fontSize = rem + 'px';
         flexible.rem = win.rem = rem;
+        var h = Math.max(docEl.clientHeight, window.innerHeight || 0);
+        var w = Math.max(docEl.clientWidth, window.innerWidth || 0);
+        var width1 = w > h ? h : w;
+        width1 = width1 > 1500 ? 1500 : width1
+        var fz = ~~(width1*100000/75)/10000
+        doc.getElementsByTagName("html")[0].style.cssText = 'font-size: ' + fz +"px";
+        var realfz = ~~(+window.getComputedStyle(doc.getElementsByTagName("html")[0]).fontSize.replace('px','')*10000)/10000
+        if (fz !== realfz) {
+            doc.getElementsByTagName("html")[0].style.cssText = 'font-size: ' + fz * (fz / realfz) +"px";
+            // docEl.style.fontSize = fz * (fz / realfz) + 'px';
+        }
     }
 
     win.addEventListener('resize', function() {
