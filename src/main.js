@@ -3,7 +3,9 @@ import './plugins/axios'
 import App from './App.vue'
 import router from './router'
 import store from './store'
+import qs from 'qs'
 
+Vue.prototype.$qs = qs;
 //引入重置样式
 import '@/assets/css/reset.css'
 

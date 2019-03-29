@@ -13,8 +13,9 @@
                     <button class="code" @click="getCode" :class="{codeAct:codeBtn!=='获取验证码'}" type="button" :disabled="disabled">{{ codeBtn }}</button>
                 </div>
                 <div class="rule">
-                    <img src="../../assets/img/yuan@2x.png" alt="">
-                    <p>我同意&nbsp;<span>《用户服务协议》</span></p>
+                    <img @click="agree =!agree" v-show="!agree" src="../../assets/img/yuan@2x.png" alt="">
+                    <img @click="agree =!agree" v-show='agree' src="../../assets/img/yuan_h.png" alt="">
+                    <p>我同意&nbsp;<span @click="$router.push('/protocol')">《用户服务协议》</span></p>
                 </div>
                 <div class="signBtn" @click="signIn">注册领佣金</div>
             </div>
@@ -24,7 +25,7 @@
                 <div class="downBtn" @click="downloadAPP(0)"></div>
                 <div class="downBtn1" @click="downloadAPP(1)"></div>
             </div>
-            <p class="notice">您的好友 {{ friendPhone }} 邀您加入卡呗生活</p>
+            <p class="notice">您的好友 {{ friendPhone }} 邀您加入点击生活</p>
         </div>
     </div>
 </template>
@@ -36,6 +37,7 @@
         name: "landing",
         data(){
             return{
+                agree: true,//是否允许协议
                 timestamp: new Date().getTime(),//时间戳
                 userId: '11',
                 mobile: '15088672554',//二维码附带手机号
@@ -66,14 +68,22 @@
                     Toast("请输入验证码");
                     return false;
                 }
+                if(!this.agree) {
+                    Toast("未勾选《用户服务协议》");
+                    return false;
+                }
                 let postData = {
-                    "mobile": this.mobile,
+                    "mobile": this.phone,
                     "mobileAuthCode": this.code,
                     "invationCode": this.inviteCode,
                     "deviceType": '3',
                     "timestamp": this.timestamp,
                 };
                 console.log(postData);
+                postData = this.$qs.stringify(postData);
+                if(postData.invationCode==undefined||''||postData.mobile==undefined||''){
+                    Toast('无邀请人，注册失败');
+                }
                 this.axios.post('/api/user/h5InviteFriendRegister',postData).then(res=>{
                     console.log(res);
                     if(res.data.code==200){
@@ -86,6 +96,10 @@
             },
             //获取验证码
             getCode:function(){
+                if(this.phone==''){
+                    Toast("请输入手机号");
+                    return false;
+                }
                 this.time = 60;
                 this.disabled=true;
                 this.timer();
@@ -94,6 +108,8 @@
                     "deviceType": '3',
                     "timestamp": this.timestamp,
                 };
+                console.log(postData);
+                postData = this.$qs.stringify(postData);
                 console.log(postData);
                 this.axios.post('/api/user/smsCodeH5',postData).then(res=>{
                     console.log(res);
@@ -126,7 +142,7 @@
                     downApp.toIOSStore("downloadAPP")
                 }
 
-            }
+            },
         },
         mounted(){
             this.mobile = this.$route.query.mobile;

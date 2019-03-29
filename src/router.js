@@ -15,7 +15,8 @@ export default new Router({
     {path: '/landing', name: 'landing', component: () => import(/* webpackChunkName: "landing" */ './views/share/landing.vue')},
     {path: '/qrCode', name: 'qrCode', component: () => import(/* webpackChunkName: "qrCode" */ './views/share/qrCode.vue')},
   //    我的模块--合伙人权益
-      {path: '/equity', name: 'equity', component: () => import(/* webpackChunkName: "equity" */ './views/mine/equity.vue')},
+    {path: '/equity', name: 'equity', component: () => import(/* webpackChunkName: "equity" */ './views/mine/equity.vue')},
+    {path: '/protocol', name: 'protocol', component: () => import(/* webpackChunkName: "protocol" */ './views/share/protocol.vue')},
 
 
 
