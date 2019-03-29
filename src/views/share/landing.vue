@@ -20,7 +20,7 @@
                 <div class="signBtn" @click="signIn">注册领佣金</div>
             </div>
             <div v-else>
-                <div class="signWin">恭喜您注册成功<br/>快下载app一起赚佣金</div>
+                <div class="signWin">{{ winText }}<br/>快下载app一起赚佣金</div>
                 <!--<div class="signBtn" @click="downloadAPP">立即下载APP</div>-->
                 <div class="downBtn" @click="downloadAPP(0)"></div>
                 <div class="downBtn1" @click="downloadAPP(1)"></div>
@@ -49,6 +49,7 @@
                 time: 0,
                 friendPhone: '158****1797',//好友手机号
                 state: true,
+                winText: '恭喜您注册成功',
                 winBg: require('../../assets/img/share-landing-win.png'),
                 signBg: require('../../assets/img/share-landing.png'),
             }
@@ -81,14 +82,15 @@
                 };
                 console.log(postData);
                 postData = this.$qs.stringify(postData);
-                if(postData.invationCode==undefined||''||postData.mobile==undefined||''){
-                    Toast('无邀请人，注册失败');
-                }
                 this.axios.post('/api/user/h5InviteFriendRegister',postData).then(res=>{
                     console.log(res);
                     if(res.data.code==200){
                         Toast('注册成功');
                         this.state = false;
+                    }else if(res.data.code==6006){
+                        Toast('该账号已注册');
+                        this.state = false;
+                        this.winText = '您已注册过'
                     }else {
                         Toast(res.data.message);
                     }
