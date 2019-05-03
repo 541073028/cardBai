@@ -1,6 +1,7 @@
 <template>
     <div class="common">
-        <img src="../../assets/img/invite-common@2x.jpg" alt="" class="bg">
+        <!--<img src="../../assets/img/invite-common@2x.jpg" alt="" class="bg">-->
+        <img src="../../assets/img/BJ.png" alt="" class="bg">
         <div class="rule">活动规则</div>
         <!-- 前期暂注释，后期打开 -->
         <!--<div class="notice">-->
@@ -132,11 +133,11 @@
          left: 50%
          margin-left: -3.03rem
      .btn1
-         top: 15.93rem
+         top: 15.92rem
      .btn2
-         top: 21.83rem
+         top: 21.2rem
      .btn3
-         top: 29.77rem
+         top: 27.14rem
      .inviteBtn
          width: 100%
          background: #6C35ED

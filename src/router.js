@@ -13,6 +13,7 @@ export default new Router({
     {path: '/about', name: 'about', component: () => import(/* webpackChunkName: "about" */ './views/About.vue')},
     {path: '/invite', name: 'invite', component: () => import(/* webpackChunkName: "invite" */ './views/share/invite.vue')},
     {path: '/landing', name: 'landing', component: () => import(/* webpackChunkName: "landing" */ './views/share/landing.vue')},
+    {path: '/landings', name: 'landings', component: () => import(/* webpackChunkName: "landings" */ './views/share/landings.vue')},
     {path: '/qrCode', name: 'qrCode', component: () => import(/* webpackChunkName: "qrCode" */ './views/share/qrCode.vue')},
   //    我的模块--合伙人权益
     {path: '/equity', name: 'equity', component: () => import(/* webpackChunkName: "equity" */ './views/mine/equity.vue')},

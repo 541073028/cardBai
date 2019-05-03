@@ -1,6 +1,7 @@
 <template>
     <div class="common">
-        <img src="../../assets/img/invite-agent@2x.jpg" alt="" class="bg">
+        <!--<img src="../../assets/img/invite-agent@2x.jpg" alt="" class="bg">-->
+        <img src="../../assets/img/BJ-zhixing.png" alt="" class="bg">
         <div class="rule">活动规则</div>
         <!-- 前期暂注释，后期打开 -->
         <!--<div class="notice">-->
@@ -109,7 +110,7 @@
          line-height: 1rem
          text-align: center
          position: absolute
-         top: 17.95rem
+         top: 15.55rem
          left: 50%
          margin-left: -3.03rem
      .inviteBtn

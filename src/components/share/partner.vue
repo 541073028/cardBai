@@ -1,6 +1,7 @@
 <template>
     <div class="common">
-        <img src="../../assets/img/invite-partner@2x.jpg" alt="" class="bg">
+        <!--<img src="../../assets/img/invite-partner@2x.jpg" alt="" class="bg">-->
+        <img src="../../assets/img/BJ-quyu.png" alt="" class="bg">
         <div class="rule">活动规则</div>
         <!-- 前期暂注释，后期打开 -->
         <!--<div class="notice">-->
