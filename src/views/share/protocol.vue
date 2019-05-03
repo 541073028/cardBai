@@ -102,22 +102,22 @@
 </script>
 
 <style scoped lang="sass">
-.protocol
-    padding: .2rem .3rem .8rem
-    h1,h2
-        text-indent: 1em
-    h1
-        font-size: .32rem
-        font-weight: bold
-        text-align: center
-        line-height: 1rem
-    h2
-        font-size: .28rem
-        font-weight: 600
-        line-height: .58rem
-    h3
-        font-weight: 600
-        margin: .2rem 0
-    p,li
-        text-indent: 2em
+    .protocol
+        padding: .2rem .3rem .8rem
+        h1,h2
+            text-indent: 1em
+        h1
+            font-size: .32rem
+            font-weight: bold
+            text-align: center
+            line-height: 1rem
+        h2
+            font-size: .28rem
+            font-weight: 600
+            line-height: .58rem
+        h3
+            font-weight: 600
+            margin: .2rem 0
+        p,li
+            text-indent: 2em
 </style>

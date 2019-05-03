@@ -29,7 +29,7 @@
         <!--一级代理-->
         <div class="content" v-else-if="getType=='2'">
             <div class="btnBox">
-                <h1>一级代理 享特权</h1>
+                <h1>执行服务商 享特权</h1>
                 <div class="itemBox">
                     <div class="item" v-for="(ele,i) in agentBtn" :key="i">
                         <img :src="ele.icon" alt="">
@@ -51,7 +51,7 @@
         <!--城市合伙人-->
         <div class="content" v-else-if="getType=='3'">
             <div class="btnBox">
-                <h1>城市合伙人 享特权</h1>
+                <h1>城市服务商 享特权</h1>
                 <div class="itemBox">
                     <div class="item" v-for="(ele,i) in partnerBtn" :key="i">
                         <img :src="ele.icon" alt="">
@@ -92,7 +92,7 @@
                     {id:3, icon: require('../../assets/img/mine/huankuan@2x(1).png'), text: '还款费率更低',describe: '手续费低至0.69%+1'},
                     {id:4, icon: require('../../assets/img/mine/ceping@2x(1).png'), text: '免费测评信用',describe: '每年5次免费测评'}
                 ],
-                //一级代理列表
+                //执行服务商列表
                 "agentBtn": [
                     {id:1, icon: require('../../assets/img/mine/shengji@2x.png'), text: '好友升级赚钱'},
                     {id:2, icon: require('../../assets/img/mine/banka@2x(1).png'), text: '好友办卡收益'},
@@ -108,12 +108,12 @@
                     {id:2, icon: require('../../assets/img/mine/agent_banka@2x.png'), text: '好友办卡收益',describe: '好友办卡40元/张'},
                     {id:3, icon: require('../../assets/img/mine/agent_huankuan@2x.png'), text: '好友还款分润',describe: '好友还款分润最高0.12%'},
                     {id:4, icon: require('../../assets/img/mine/agent_shoukuan@2x.png'), text: '好友收款分润',describe: '好友收款分润最高0.22%'},
-                    {id:5, icon: require('../../assets/img/mine/agent_zhaoshang@2x.png'), text: '招商补贴',describe: '直招一级代理奖励40%'},
-                    {id:6, icon: require('../../assets/img/mine/agent_pingtai@2x.png'), text: '平台补贴',describe: '直招代理所有利润的10%'},
+                    {id:5, icon: require('../../assets/img/mine/agent_zhaoshang@2x.png'), text: '招商补贴',describe: '直招执行服务商奖励40%'},
+                    {id:6, icon: require('../../assets/img/mine/agent_pingtai@2x.png'), text: '平台补贴',describe: '直招执行服务商所有利润的10%'},
                     {id:7, icon: require('../../assets/img/mine/agent_jiaoyi@2x.png'), text: '自用交易省钱',describe: '收款0.52%+2还款0.62%+1'},
                     {id:8, icon: require('../../assets/img/mine/agent_kefu@2x.png'), text: '1V1专属客服',describe: '在线客服，即时回复无需等待'}
                 ],
-                //城市合伙人列表
+                //城市服务商列表
                 "partnerBtn": [
                     {id:1, icon: require('../../assets/img/mine/partner_shengji@2x.png'), text: '好友升级赚钱'},
                     {id:2, icon: require('../../assets/img/mine/partner_banka@2x(1).png'), text: '好友办卡收益'},
@@ -129,8 +129,8 @@
                     {id:2, icon: require('../../assets/img/mine/agent_banka@2x.png'), text: '好友办卡收益',describe: '好友办卡40元/张'},
                     {id:3, icon: require('../../assets/img/mine/agent_huankuan@2x.png'), text: '好友还款分润',describe: '好友还款分润最高0.12%'},
                     {id:4, icon: require('../../assets/img/mine/agent_shoukuan@2x.png'), text: '好友收款分润',describe: '好友收款分润最高0.22%'},
-                    {id:5, icon: require('../../assets/img/mine/agent_zhaoshang@2x.png'), text: '招商补贴',describe: '直招一级代理奖励40%'},
-                    {id:6, icon: require('../../assets/img/mine/agent_pingtai@2x.png'), text: '平台补贴',describe: '直招代理所有利润的10%'},
+                    {id:5, icon: require('../../assets/img/mine/agent_zhaoshang@2x.png'), text: '招商补贴',describe: '直招执行服务商奖励40%'},
+                    {id:6, icon: require('../../assets/img/mine/agent_pingtai@2x.png'), text: '平台补贴',describe: '直招执行服务商所有利润的10%'},
                     {id:7, icon: require('../../assets/img/mine/fenhong@2x.png'), text: '区域分红',describe: '享受区域所有用户收益'},
                     {id:8, icon: require('../../assets/img/mine/dujia@2x.png'), text: '区域独家',describe: '一城一主，聚盈模式'},
                     {id:9, icon: require('../../assets/img/mine/agent_kefu@2x.png'), text: '1V1专属客服',describe: '在线客服，即时回复无需等待'},

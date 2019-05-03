@@ -8,9 +8,9 @@
         <common v-if="status==='0'" />
         <!--vip-->
         <vipUser v-else-if="status==='1'" />
-        <!--代理商-->
+        <!--执行服务商-->
         <agent v-else-if="status==='2'" />
-        <!--城市合伙人-->
+        <!--城市服务商-->
         <partner v-else-if="status==='3'" />
 
     </div>

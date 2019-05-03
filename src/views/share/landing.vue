@@ -27,6 +27,11 @@
             </div>
             <p class="notice">您的好友 {{ friendPhone }} 邀您加入点击生活</p>
         </div>
+        <div class="mask" v-show="legal" @touchmove.prevent>
+            <div class="noticeBox" v-html="notice">
+                {{notice}}
+            </div>
+        </div>
     </div>
 </template>
 
@@ -37,6 +42,8 @@
         name: "landing",
         data(){
             return{
+                legal: false,//展示蒙层【邀请码不合法，true】
+                notice: '',//邀请码不合法，提示信息
                 agree: true,//是否允许协议
                 timestamp: new Date().getTime(),//时间戳
                 userId: '11',
@@ -145,10 +152,33 @@
                 }
 
             },
+        //    判断商铺是否下架或删除
+            isLegal(){
+                let postData = {
+                    "invationCode": this.inviteCode,
+                    "deviceType": '3',
+                    "timestamp": this.timestamp,
+                };
+                console.log(postData);
+                postData = this.$qs.stringify(postData);
+                this.axios.post('/api/user/InviteFriendForStoreIsGround',postData).then(res=>{
+                    console.log(res);
+                    if(res.data.code==200){
+                        // Toast('注册成功');
+                        // this.state = false;
+                    }else {
+                        this.legal = true;
+                        this.notice = '该商铺已下架或已删除' + '<br>'+'无法邀请好友注册';
+                        // this.notice = res.data.message + '<br>'+'无法注册';
+                    }
+                });
+            }
         },
         mounted(){
             this.mobile = this.$route.query.mobile;
             this.inviteCode = this.$route.query.code;
+            // 判断商铺是否下架或删除
+            this.isLegal();
             // 判断手机号是否经过保密处理，而后赋值渲染页面
             if(!reg.test(this.mobile)){
                 this.friendPhone = this.mobile;
@@ -156,27 +186,7 @@
                 this.friendPhone = this.mobile.substr(0,3) + "****" + this.mobile.substr(7);
             }
 
-            /**
-             *
-             * 接口示例
-             *
-             * */
-            // this.axios({
-            //     method: 'post',
-            //     url: '/api/user/h5InviteFrendRegister',
-            //     data: {
-            //         mobile: this.mobile,
-            //         mobileAuthCode: this.code,
-            //         invationCode: this.inviteCode,
-            //         deviceType: '3',
-            //         timestamp: this.timestamp,
-            //     }
-            // }).then(res=>{
-            //     console.log(res);
-            //     if(res.data.code=='100030') {
-            //         Toast('验证失败');
-            //     }
-            // });
+
         }
     }
 </script>
@@ -188,6 +198,32 @@
         position: relative
         .bg
             width: 100%
+        .mask
+            width: 100vw
+            height: 100vh
+            background: rgba(0, 0, 0, 0.6)
+            position: fixed
+            top: 0
+            left: 0
+            z-index: 999
+            .noticeBox
+                width: 4.2rem
+                height: 1.6rem
+                line-height: .4rem
+                padding: 0 .3rem
+                background: #fff
+                border-radius: .1rem
+                font-size: .3rem
+                position: absolute
+                left: 0
+                top: 0
+                bottom: 0
+                right: 0
+                margin: auto
+                display: flex
+                align-items: center
+                justify-content: center
+                text-align: center
         .main
             width: 7.06rem
             height: auto

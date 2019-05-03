@@ -11,7 +11,8 @@ module.exports = {
             '/qq': {
                 // 目标 API 地址
                 // target: 'http://djsh.xianjinloan.com',
-                target: 'http://kabei.vipgz1.idcfengye.com/',
+                target: 'http://loanweb.free.idcfengye.com/',
+                // target: 'http://kabei.vipgz1.idcfengye.com/',
                 // target: 'http://192.168.1.6:8188/',
                 // // 如果要代理 websockets
                 // ws: true,
