@@ -23,6 +23,17 @@ export default new Router({
     //  protocols--ios独有【审核用】
     {path: '/protocols', name: 'protocols', component: () => import(/* webpackChunkName: "protocols" */ './views/share/protocols.vue')},
 
+    /**  活动  **/
+    {path: '/activity', name: 'activity', component: () => import(/* webpackChunkName: "activity" */ './views/activity/index.vue')},
+    /**  下载  **/
+      {path: '/downApp', name: 'downApp', component: () => import(/* webpackChunkName: "downApp" */ './views/down/index.vue')},
+
+
+      /**
+       * 商家版--【因页面过少，所以暂在app用户端部署】
+       */
+      {path: '/merchant/merchantDown', name: 'merchantDown', component: () => import(/* webpackChunkName: "merchantDown" */ './views/merchant/merchantDown.vue')},
+
 
 
   ]

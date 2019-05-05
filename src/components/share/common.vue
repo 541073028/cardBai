@@ -1,13 +1,13 @@
 <template>
     <div class="common">
         <!--<img src="../../assets/img/invite-common@2x.jpg" alt="" class="bg">-->
-        <img src="../../assets/img/BJ.png" alt="" class="bg">
+        <img src="../../assets/img/share/bj@2x.jpg" alt="" class="bg">
         <div class="rule">活动规则</div>
         <!-- 前期暂注释，后期打开 -->
         <!--<div class="notice">-->
             <!--恭喜{{user}}用户{{phone}}累计获得 <span>{{money}}元</span>邀请奖励-->
         <!--</div>-->
-        <div class="update">邀请20个好友直接升级为VIP会员</div>
+        <div class="update">邀请20个好友直接升级为PLUS会员</div>
         <div class="btn" :class="ele.name" v-for="(ele,index) in btnList" :key="index" @click="addEquities(index)">{{ele.msg}}</div>
         <div class="inviteBtn">
             <div v-for="(item,index) in inviteBtn" :key="index" @click="invite(index)">
@@ -27,7 +27,7 @@
                 phone: '158****1797',//notice手机号
                 money: '20',//notice金额
                 btnList: [
-                    {id:1,msg:'VIP会员198元/年  立即开通',name:'btn1'},
+                    {id:1,msg:'PLUS会员198元/年  立即开通',name:'btn1'},
                     {id:2,msg:'立刻成为一级代理商',name:'btn2'},
                     {id:3,msg:'立刻成为城市合伙人',name:'btn3'},
                 ],

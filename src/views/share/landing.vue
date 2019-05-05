@@ -22,7 +22,7 @@
             <div v-else>
                 <div class="signWin">{{ winText }}<br/>快下载app一起赚佣金</div>
                 <!--<div class="signBtn" @click="downloadAPP">立即下载APP</div>-->
-                <div class="downBtn" @click="downloadAPP(0)"></div>
+                <div class="downBtn" @click="downloadAPP(0,'http://prod.dianjishenghuo.cn/app/djsh_android.apk')"></div>
                 <div class="downBtn1" @click="downloadAPP(1)"></div>
             </div>
             <p class="notice">您的好友 {{ friendPhone }} 邀您加入点击生活</p>
@@ -143,12 +143,13 @@
                 }
             },
             //下载APP
-            downloadAPP(num){
-                if(num==0){
-                    console.log('安卓APP');
-                }else {
+            downloadAPP(num,url){
+                if(num){
                     console.log('iosAPP');
-                    downApp.toIOSStore("downloadAPP")
+                    Toast('APP审核中……')
+                }else {
+                    console.log('安卓APP');
+                    window.location.href = url
                 }
 
             },

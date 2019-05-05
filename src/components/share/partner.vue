@@ -25,7 +25,7 @@
                 phone: '158****1797',//notice手机号
                 money: '20',//notice金额
                 btnList: [
-                    {id:1,msg:'VIP会员198元/年  立即开通',name:'btn1'},
+                    {id:1,msg:'PLUS会员198元/年  立即开通',name:'btn1'},
                     {id:2,msg:'立刻成为一级代理商',name:'btn2'},
                     {id:3,msg:'立刻成为城市合伙人',name:'btn3'},
                 ],

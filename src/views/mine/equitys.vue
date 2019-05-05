@@ -4,7 +4,7 @@
             <img :src="getHeadImg" alt="" :class="{imgAct: getType=='1'||getType=='2'}">
         </div>
         <!--【getType：1--咖啡机，2--空气炸锅，3--城市合伙人】-->
-        <!--vip会员-->
+        <!--PLUS会员-->
         <div class="contentOne" v-if="getType=='1'">
             <div class="title">
                 <h2>产品参数：</h2>
@@ -72,7 +72,7 @@
                 ],
                 "partnerCard": [
                     {id:1, icon: require('../../assets/img/mine/agent_tp@2x.png'), text: '消费分佣',describe: '享受旗下所有用户,在平台商户消费分红'},
-                    {id:2, icon: require('../../assets/img/mine/agent_banka@2x.png'), text: '升级奖励',describe: '享受所旗下所有用户,升级会员PLUS奖励'},
+                    {id:2, icon: require('../../assets/img/mine/agent_banka@2x.png'), text: '升级奖励',describe: '享受所旗下所有用户,升级PLUS会员奖励'},
                     {id:3, icon: require('../../assets/img/mine/agent_huankuan@2x.png'), text: '推荐佣金',describe: '享受推荐平级服务商的推荐奖励'},
                     {id:4, icon: require('../../assets/img/mine/agent_shoukuan@2x.png'), text: '推广补贴',describe: '服务商推荐商家、用户，享受推广补贴。'},
                     {id:5, icon: require('../../assets/img/mine/agent_zhaoshang@2x.png'), text: '平台分红',describe: '享受平台收益的分红'},

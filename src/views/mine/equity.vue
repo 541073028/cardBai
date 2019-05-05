@@ -3,11 +3,11 @@
         <div class="headImg">
             <img :src="getHeadImg" alt="">
         </div>
-        <!--【getType：1--vip会员，2--一级代理，3--城市合伙人】-->
-        <!--vip会员-->
+        <!--【getType：1--PLUS会员，2--一级代理，3--城市合伙人】-->
+        <!--PLUS会员-->
         <div class="content" v-if="getType=='1'">
             <div class="btnBox">
-                <h1>会员PLUS 享特权</h1>
+                <h1>PLUS会员 享特权</h1>
                 <div class="itemBox">
                     <div class="item" v-for="(ele,i) in vipBtn" :key="i">
                         <img :src="ele.icon" alt="">
@@ -79,7 +79,7 @@
         name: "equity",
         data(){
             return {
-                //vip会员列表
+                //PLUS会员列表
                 "vipBtn": [
                     {id:1, icon: require('../../assets/img/mine/zigou@2x.png'), text: '自购省钱'},
                     {id:2, icon: require('../../assets/img/mine/yaoqing@2x.png'), text: '邀请收益'},
@@ -89,7 +89,7 @@
                 "vipCard": [
                     {id:1, icon: require('../../assets/img/mine/zigou-big@2x.png'), text: '自购省钱',describe: '消费返利可在平台任意商家无门槛抵扣'},
                     {id:2, icon: require('../../assets/img/mine/yaoqing-big@2x.png'), text: '邀请收益',describe: '邀请好友成为会员获得奖励'},
-                    {id:3, icon: require('../../assets/img/mine/shenji-big@2x.png'), text: '升级奖励',describe: '好友成为会员PLUS获得奖励'},
+                    {id:3, icon: require('../../assets/img/mine/shenji-big@2x.png'), text: '升级奖励',describe: '好友成为PLUS会员获得奖励'},
                     {id:4, icon: require('../../assets/img/mine/fanyong-big@2x.png'), text: '消费反佣',describe: '好友消费可获得奖励'}
                 ],
                 // "vipBtn": [
@@ -117,7 +117,7 @@
                 ],
                 "agentCard": [
                     {id:1, icon: require('../../assets/img/mine/agent_tp@2x.png'), text: '消费分佣',describe: '享受旗下所有用户在平台商户消费分红'},
-                    {id:2, icon: require('../../assets/img/mine/agent_banka@2x.png'), text: '升级奖励',describe: '享受所旗下所有用户升级会员PLUS奖励'},
+                    {id:2, icon: require('../../assets/img/mine/agent_banka@2x.png'), text: '升级奖励',describe: '享受所旗下所有用户升级PLUS会员奖励'},
                     {id:3, icon: require('../../assets/img/mine/agent_huankuan@2x.png'), text: '推荐佣金',describe: '享受推荐平级服务商的推荐奖励'},
                     {id:4, icon: require('../../assets/img/mine/agent_shoukuan@2x.png'), text: '推广补贴',describe: '服务商推荐商家、用户，享受推广补贴'},
                     {id:5, icon: require('../../assets/img/mine/agent_zhaoshang@2x.png'), text: '平台分红',describe: '享受平台收益的分红'},
@@ -158,7 +158,7 @@
                 ],
                 "partnerCard": [
                     {id:1, icon: require('../../assets/img/mine/agent_tp@2x.png'), text: '消费分佣',describe: '享受旗下所有用户,在平台商户消费分红'},
-                    {id:2, icon: require('../../assets/img/mine/agent_banka@2x.png'), text: '升级奖励',describe: '享受所旗下所有用户,升级会员PLUS奖励'},
+                    {id:2, icon: require('../../assets/img/mine/agent_banka@2x.png'), text: '升级奖励',describe: '享受所旗下所有用户,升级PLUS会员奖励'},
                     {id:3, icon: require('../../assets/img/mine/agent_huankuan@2x.png'), text: '推荐佣金',describe: '享受推荐平级服务商的推荐奖励'},
                     {id:4, icon: require('../../assets/img/mine/agent_shoukuan@2x.png'), text: '推广补贴',describe: '服务商推荐商家、用户，享受推广补贴。'},
                     {id:5, icon: require('../../assets/img/mine/agent_zhaoshang@2x.png'), text: '平台分红',describe: '享受平台收益的分红'},
