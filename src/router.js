@@ -25,6 +25,9 @@ export default new Router({
 
     /**  活动  **/
     {path: '/activity', name: 'activity', component: () => import(/* webpackChunkName: "activity" */ './views/activity/index.vue')},
+    //  ios版
+    {path: '/activitys', name: 'activitys', component: () => import(/* webpackChunkName: "activitys" */ './views/activity/activitys.vue')},
+    {path: '/fiveEleven', name: 'fiveEleven', component: () => import(/* webpackChunkName: "fiveEleven" */ './views/activity/fiveEleven.vue')},
     /**  下载  **/
       {path: '/downApp', name: 'downApp', component: () => import(/* webpackChunkName: "downApp" */ './views/down/index.vue')},
 

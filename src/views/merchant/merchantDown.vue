@@ -3,7 +3,7 @@
         <div class="content">
             <img class="icon" src="../../assets/img/down/logo@2x.png" alt="">
             <div class="btn">
-                <img @click="toDown()" src="../../assets/img/merchant/s-APP@2x.png  " alt="">
+                <img @click="toDown()" src="../../assets/img/merchant/sapp@2x.png" alt="">
             </div>
         </div>
     </div>
@@ -23,7 +23,8 @@
                 //【0-安卓；1-iOS】
                 if(this.isSystem){
                     console.log("IOS");
-                    Toast("APP审核中……")
+                    // Toast("APP审核中……")
+                    window.location.href = 'https://itunes.apple.com/cn/app/id1462765230'
                 }else {
                     console.log("android");
                     window.location.href = 'http://prod.dianjishenghuo.cn/app/djsh_android.apk'

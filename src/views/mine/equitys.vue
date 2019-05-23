@@ -27,7 +27,7 @@
         <!--城市合伙人-->
         <div class="content" v-else-if="getType=='3'">
             <div class="btnBox">
-                <h1>城市服务商 享特权</h1>
+                <h1>区域服务商 享特权</h1>
                 <div class="itemBox">
                     <div class="item" v-for="(ele,i) in partnerBtn" :key="i">
                         <img :src="ele.icon" alt="">
@@ -200,6 +200,7 @@
                         height: 1.18rem
                         margin-bottom: .02rem
                     div
+                        width: 1.8rem
                         font-size: .28rem
                         p
                             font-weight: 600

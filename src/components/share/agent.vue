@@ -26,9 +26,10 @@
                 phone: '158****1797',//notice手机号
                 money: '20',//notice金额
                 btnList: [
-                    {id:1,msg:'PLUS会员198元/年  立即开通',name:'btn1'},
-                    {id:2,msg:'立刻成为一级代理商',name:'btn2'},
-                    {id:3,msg:'立刻成为城市合伙人',name:'btn3'},
+                    {id:1,msg:'了解PLUS会员 >',name:'btn1'},
+                    // {id:1,msg:'PLUS会员198元/年  立即开通',name:'btn1'},
+                    {id:2,msg:'了解执行服务商 >',name:'btn2'},
+                    {id:3,msg:'了解更多区域服务商 >',name:'btn3'},
                 ],
                 inviteBtn: [
                     {id:1,content:'二维码邀请',src: require('../../assets/img/invite_erweima.png')},

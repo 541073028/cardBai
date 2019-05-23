@@ -7,7 +7,8 @@
         <!--<div class="notice">-->
             <!--恭喜{{user}}用户{{phone}}累计获得 <span>{{money}}元</span>邀请奖励-->
         <!--</div>-->
-        <div class="update">邀请20个好友直接升级为PLUS会员</div>
+        <div class="update">邀请10个好友直接升级为PLUS会员</div>
+        <!--<div class="btn" v-html="ele.msg" :class="ele.name" v-for="(ele,index) in btnList" :key="index" @click="addEquities(index)"></div>-->
         <div class="btn" :class="ele.name" v-for="(ele,index) in btnList" :key="index" @click="addEquities(index)">{{ele.msg}}</div>
         <div class="inviteBtn">
             <div v-for="(item,index) in inviteBtn" :key="index" @click="invite(index)">
@@ -27,9 +28,11 @@
                 phone: '158****1797',//notice手机号
                 money: '20',//notice金额
                 btnList: [
-                    {id:1,msg:'PLUS会员198元/年  立即开通',name:'btn1'},
-                    {id:2,msg:'立刻成为一级代理商',name:'btn2'},
-                    {id:3,msg:'立刻成为城市合伙人',name:'btn3'},
+                    // {id:1,msg:'了解PLUS会员 &gt;',name:'btn1'},
+                    {id:1,msg:'了解PLUS会员 >',name:'btn1'},
+                    // {id:1,msg:'PLUS会员198元/年  立即开通',name:'btn1'},
+                    {id:2,msg:'了解执行服务商 >',name:'btn2'},
+                    {id:3,msg:'了解更多区域服务商 >',name:'btn3'},
                 ],
                 inviteBtn: [
                     {id:1,content:'二维码邀请',src: require('../../assets/img/invite_erweima.png')},

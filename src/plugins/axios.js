@@ -11,7 +11,7 @@ axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded
 let config = {
   // baseURL: '/qq',
   baseURL: process.env.NODE_ENV === 'production' ? 'https://product.dianjishenghuo.cn': '/qq', // api 的 base_url
-  // baseURL: process.env.NODE_ENV === 'production' ? 'http://djsh.xianjinloan.com': '/qq', // api 的 base_url
+  // baseURL: process.env.NODE_ENV === 'production' ? 'http://test.dianjishenghuo.cn: '/qq', // api 的 base_url
   timeout: 5000, // Timeout
   // withCredentials: true, // Check cross-site Access-Control
 };

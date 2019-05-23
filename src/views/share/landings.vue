@@ -1,6 +1,6 @@
 <template>
     <div class="landings">
-        <img class="bg" src="../../assets/img/share-landings.png" alt="">
+        <img class="bg" src="../../assets/img/share/sharebj2@2x.png" alt="">
         <div class="main">
             <div v-if="state" class="inputBox">
                 <div class="item">
@@ -23,9 +23,9 @@
                 <div class="signWin">{{ winText }}<br/>快下载app一起赚佣金</div>
                 <!--<div class="signBtn" @click="downloadAPP">立即下载APP</div>-->
                 <div class="downBtn" @click="downloadAPP(0,'http://prod.dianjishenghuo.cn/app/djsh_android.apk')"></div>
-                <div class="downBtn1" @click="downloadAPP(1)"></div>
+                <div class="downBtn1" @click="downloadAPP(1,'https://itunes.apple.com/cn/app/id1462765230')"></div>
             </div>
-            <p class="notice">您的好友 {{ friendPhone }} 邀您加入点击生活</p>
+            <p class="notice">您的好友 {{ friendPhone }} 邀您加入点击新零售</p>
         </div>
         <div class="mask" v-show="legal" @touchmove.prevent>
             <div class="noticeBox" v-html="notice">
@@ -146,7 +146,8 @@
             downloadAPP(num,url){
                 if(num){
                     console.log('iosAPP');
-                    Toast('APP审核中……')
+                    // Toast('APP审核中……')
+                    // window.location.href = url
                 }else {
                     console.log('安卓APP');
                     // window.location.href = url
@@ -233,7 +234,7 @@
             background: #fff
             border-radius: .15rem
             position: absolute
-            top: 4.8rem
+            top: 6.4rem
             left: 50%
             margin-left: -3.53rem
             padding: .42rem .8rem 0
@@ -286,7 +287,7 @@
                         color: #01A1FF
         .signBtn
             line-height: .88rem
-            background: linear-gradient(90deg,rgba(255,186,57,1) 0%,rgba(254,135,63,1) 100%)
+            background: linear-gradient(90deg,#DF554E 0%,#BE322F 100%)
             box-shadow: 0 .02rem .12rem 0 rgba(255,186,57,0.3)
             border-radius: .44rem
             font-size: .34rem
@@ -298,10 +299,10 @@
             width: 3.84rem
             height: .99rem
             margin: 0 auto
-            background: url("../../assets/img/Android.png")
+            background: url("../../assets/img/share/shareAZ@2x.png")
             background-size: 100% 100%
         .downBtn1
-            background: url("../../assets/img/iPhone.png")
+            background: url("../../assets/img/share/iosPG@2x.png")
             background-size: 100% 100%
         .notice
             color: #FF8E21

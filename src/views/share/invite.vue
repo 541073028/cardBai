@@ -12,6 +12,8 @@
         <agent v-else-if="status==='2'" />
         <!--城市服务商-->
         <partner v-else-if="status==='3'" />
+        <!--城市服务商-->
+        <partner v-else-if="status==='4'" />
 
     </div>
 </template>

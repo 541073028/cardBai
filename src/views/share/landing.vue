@@ -1,6 +1,7 @@
 <template>
     <div class="landing">
-        <img class="bg" src="../../assets/img/share-landing.png" alt="">
+        <!--<img class="bg" src="../../assets/img/share-landing.png" alt="">-->
+        <img class="bg" src="../../assets/img/share/shareBJ@2x.png" alt="">
         <div class="main">
             <div v-if="state" class="inputBox">
                 <div class="item">
@@ -23,7 +24,7 @@
                 <div class="signWin">{{ winText }}<br/>快下载app一起赚佣金</div>
                 <!--<div class="signBtn" @click="downloadAPP">立即下载APP</div>-->
                 <div class="downBtn" @click="downloadAPP(0,'http://prod.dianjishenghuo.cn/app/djsh_android.apk')"></div>
-                <div class="downBtn1" @click="downloadAPP(1)"></div>
+                <div class="downBtn1" @click="downloadAPP(1,'https://itunes.apple.com/cn/app/id1462765230')"></div>
             </div>
             <p class="notice">您的好友 {{ friendPhone }} 邀您加入点击生活</p>
         </div>
@@ -46,15 +47,15 @@
                 notice: '',//邀请码不合法，提示信息
                 agree: true,//是否允许协议
                 timestamp: new Date().getTime(),//时间戳
-                userId: '11',
-                mobile: '15088672554',//二维码附带手机号
-                inviteCode: 'waob3e4w',//二维码附带邀请码
+                userId: '',
+                mobile: '',//二维码附带手机号
+                inviteCode: '',//二维码附带邀请码
                 phone: '',//手机号
                 code: '',//短信验证码
                 codeBtn: '获取验证码',//获取验证码btn
                 disabled: false,
                 time: 0,
-                friendPhone: '158****1797',//好友手机号
+                friendPhone: '',//好友手机号
                 state: true,
                 winText: '恭喜您注册成功',
                 winBg: require('../../assets/img/share-landing-win.png'),
@@ -147,6 +148,7 @@
                 if(num){
                     console.log('iosAPP');
                     Toast('APP审核中……')
+                    window.location.href = url
                 }else {
                     console.log('安卓APP');
                     window.location.href = url
@@ -233,7 +235,7 @@
             background: #fff
             border-radius: .15rem
             position: absolute
-            top: 4.8rem
+            top: 6.4rem
             left: 50%
             margin-left: -3.53rem
             padding: .42rem .8rem 0
@@ -286,7 +288,7 @@
                         color: #01A1FF
         .signBtn
             line-height: .88rem
-            background: linear-gradient(90deg,rgba(255,186,57,1) 0%,rgba(254,135,63,1) 100%)
+            background: linear-gradient(90deg,#DF554E 0%,#BE322F 100%)
             box-shadow: 0 .02rem .12rem 0 rgba(255,186,57,0.3)
             border-radius: .44rem
             font-size: .34rem
@@ -298,10 +300,10 @@
             width: 3.84rem
             height: .99rem
             margin: 0 auto
-            background: url("../../assets/img/Android.png")
+            background: url("../../assets/img/share/shareAZ@2x.png")
             background-size: 100% 100%
         .downBtn1
-            background: url("../../assets/img/iPhone.png")
+            background: url("../../assets/img/share/iosPG@2x.png")
             background-size: 100% 100%
         .notice
             color: #FF8E21
